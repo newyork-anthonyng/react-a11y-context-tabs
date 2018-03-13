@@ -90,11 +90,13 @@ export default () => (
 | ----- | ----------- | ------- |
 | id | (**String**) A unique ID which should also be added to its corresponding `TabPanel` | Required |
 | innerRef | (**Function**) A function to get the `ref` of the wrapper `<div />` element | None |
+| className | (**String**) HTML class attribute | "react-tabs__tab" |
 
 ## TabPanel
 | Props | Description | Default |
 | ----- | ----------- | ------- |
 | id | (**String**) A unique ID which should also be added to its corresponding `Tab` | Required |
+| className | (**String**) HTML class attribute | "react-tabs__tabPanel" |
 
 ## Tabs
 | Props | Description | Default |
