@@ -1,7 +1,12 @@
 import React from "react";
 import { mount } from "enzyme";
 import toJSON from "enzyme-to-json";
-import Tabs from "./Tabs";
+import Tabs, {
+  LEFT_ARROW_KEY_CODE,
+  RIGHT_ARROW_KEY_CODE,
+  UP_ARROW_KEY_CODE,
+  DOWN_ARROW_KEY_CODE
+} from "./Tabs";
 
 const defaultProps = {
   forceRenderTabPanel: false,
@@ -84,7 +89,7 @@ describe("Key down events", () => {
     const wrapper = mockWrapperWithSelectedId("foo");
 
     const divEl = wrapper.find("div");
-    divEl.simulate("keydown", { keyCode: 37 });
+    divEl.simulate("keydown", { keyCode: LEFT_ARROW_KEY_CODE });
 
     expect(wrapper.state()).toMatchSnapshot();
   });
@@ -93,7 +98,7 @@ describe("Key down events", () => {
     const wrapper = mockWrapperWithSelectedId("bar");
 
     const divEl = wrapper.find("div");
-    divEl.simulate("keydown", { keyCode: 37 });
+    divEl.simulate("keydown", { keyCode: LEFT_ARROW_KEY_CODE });
 
     expect(wrapper.state()).toMatchSnapshot();
   });
@@ -102,7 +107,7 @@ describe("Key down events", () => {
     const wrapper = mockWrapperWithSelectedId("foo");
 
     const divEl = wrapper.find("div");
-    divEl.simulate("keydown", { keyCode: 38 });
+    divEl.simulate("keydown", { keyCode: UP_ARROW_KEY_CODE });
 
     expect(wrapper.state()).toMatchSnapshot();
   });
@@ -111,7 +116,7 @@ describe("Key down events", () => {
     const wrapper = mockWrapperWithSelectedId("bar");
 
     const divEl = wrapper.find("div");
-    divEl.simulate("keydown", { keyCode: 38 });
+    divEl.simulate("keydown", { keyCode: UP_ARROW_KEY_CODE });
 
     expect(wrapper.state()).toMatchSnapshot();
   });
@@ -120,7 +125,7 @@ describe("Key down events", () => {
     const wrapper = mockWrapperWithSelectedId("baz");
 
     const divEl = wrapper.find("div");
-    divEl.simulate("keydown", { keyCode: 39 });
+    divEl.simulate("keydown", { keyCode: RIGHT_ARROW_KEY_CODE });
 
     expect(wrapper.state()).toMatchSnapshot();
   });
@@ -129,7 +134,7 @@ describe("Key down events", () => {
     const wrapper = mockWrapperWithSelectedId("bar");
 
     const divEl = wrapper.find("div");
-    divEl.simulate("keydown", { keyCode: 39 });
+    divEl.simulate("keydown", { keyCode: RIGHT_ARROW_KEY_CODE });
 
     expect(wrapper.state()).toMatchSnapshot();
   });
@@ -138,7 +143,7 @@ describe("Key down events", () => {
     const wrapper = mockWrapperWithSelectedId("baz");
 
     const divEl = wrapper.find("div");
-    divEl.simulate("keydown", { keyCode: 40 });
+    divEl.simulate("keydown", { keyCode: DOWN_ARROW_KEY_CODE });
 
     expect(wrapper.state()).toMatchSnapshot();
   });
@@ -147,7 +152,7 @@ describe("Key down events", () => {
     const wrapper = mockWrapperWithSelectedId("bar");
 
     const divEl = wrapper.find("div");
-    divEl.simulate("keydown", { keyCode: 40 });
+    divEl.simulate("keydown", { keyCode: DOWN_ARROW_KEY_CODE });
 
     expect(wrapper.state()).toMatchSnapshot();
   });
@@ -176,7 +181,7 @@ describe("Key down events", () => {
     wrapper.setState({ selectedId: "bar" });
 
     const divEl = wrapper.find("div");
-    divEl.simulate("keydown", { keyCode: 40 });
+    divEl.simulate("keydown", { keyCode: DOWN_ARROW_KEY_CODE });
     expect(cb).toHaveBeenCalledTimes(1);
   });
 
@@ -189,7 +194,7 @@ describe("Key down events", () => {
     );
 
     const divEl = wrapper.find("div");
-    divEl.simulate("keydown", { keyCode: 40 });
+    divEl.simulate("keydown", { keyCode: DOWN_ARROW_KEY_CODE });
 
     expect(cb).toHaveBeenCalledTimes(1);
   });

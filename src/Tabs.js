@@ -140,3 +140,9 @@ Tabs.childContextTypes = {
 };
 
 export default Tabs;
+export {
+  LEFT_ARROW_KEY_CODE,
+  RIGHT_ARROW_KEY_CODE,
+  UP_ARROW_KEY_CODE,
+  DOWN_ARROW_KEY_CODE
+};
