@@ -15,7 +15,7 @@ React tab component which is accessible and can be nested within other HTML elem
 
 # Getting started
 ```shell
-npm install --save react-a11y-context-tabs-a11y
+npm install --save react-a11y-context-tabs
 ```
 
 # Why?
