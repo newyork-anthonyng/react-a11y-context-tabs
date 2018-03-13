@@ -1,0 +1,57 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render correctly when not selected 1`] = `
+<Tab
+  className="react-tabs__tab"
+  id="foo"
+>
+  <div
+    aria-controls="foo--panel"
+    aria-selected="false"
+    className="react-tabs__tab"
+    id="foo--tab"
+    onClick={[Function]}
+    tabIndex="-1"
+  >
+    <h1>
+      Hello World
+    </h1>
+  </div>
+</Tab>
+`;
+
+exports[`should render correctly when selected 1`] = `
+<Tab
+  className="react-tabs__tab"
+  id="foo"
+>
+  <div
+    aria-controls="foo--panel"
+    aria-selected="true"
+    className="react-tabs__tab tab--selected"
+    id="foo--tab"
+    onClick={[Function]}
+    tabIndex={0}
+  >
+    <h1>
+      Hello World
+    </h1>
+  </div>
+</Tab>
+`;
+
+exports[`should run innerRef prop 1`] = `
+Array [
+  <div
+    aria-controls="foo--panel"
+    aria-selected="false"
+    class="react-tabs__tab"
+    id="foo--tab"
+    tabindex="-1"
+  >
+    <h1>
+      Hello World
+    </h1>
+  </div>,
+]
+`;

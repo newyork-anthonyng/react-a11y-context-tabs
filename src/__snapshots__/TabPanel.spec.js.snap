@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should not render children when not selected and forceRenderTabPanel is false 1`] = `
+<TabPanel
+  className="tabPanel"
+  id="foo"
+>
+  <div
+    aria-labelledby="foo--tab"
+    className="tabPanel"
+    id="foo--panel"
+  />
+</TabPanel>
+`;
+
+exports[`should render children when forceRenderTabPanel is true 1`] = `
+<TabPanel
+  className="tabPanel"
+  id="foo"
+>
+  <div
+    aria-labelledby="foo--tab"
+    className="tabPanel"
+    id="foo--panel"
+  >
+    <h1>
+      Hello
+    </h1>
+  </div>
+</TabPanel>
+`;
+
+exports[`should render children when selected 1`] = `
+<TabPanel
+  className="tabPanel"
+  id="foo"
+>
+  <div
+    aria-labelledby="foo--tab"
+    className="tabPanel tabPanel--selected"
+    id="foo--panel"
+  >
+    <h1>
+      Hello
+    </h1>
+  </div>
+</TabPanel>
+`;

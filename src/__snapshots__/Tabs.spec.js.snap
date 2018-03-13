@@ -1,0 +1,79 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Context should append tab index only if not present 1`] = `
+Array [
+  "foo",
+  "bar",
+]
+`;
+
+exports[`Context should expose correct context 1`] = `
+Object {
+  "forceRenderTabPanel": false,
+  "onActivate": [Function],
+  "onTabMount": [Function],
+  "selectedId": null,
+  "selectedTabClassName": "tab--selected",
+  "selectedTabPanelClassName": "tabPanel--selected",
+}
+`;
+
+exports[`Context should should update selectedId with onActivate function 1`] = `
+Object {
+  "selectedId": "foo",
+}
+`;
+
+exports[`Key down events should update correctly when not pressing on arrow key 1`] = `
+Object {
+  "selectedId": "bar",
+}
+`;
+
+exports[`Key down events should update correctly when pressing DOWN key on last tab 1`] = `
+Object {
+  "selectedId": "foo",
+}
+`;
+
+exports[`Key down events should update correctly when pressing DOWN key when not on last tab 1`] = `
+Object {
+  "selectedId": "baz",
+}
+`;
+
+exports[`Key down events should update correctly when pressing LEFT key on first tab 1`] = `
+Object {
+  "selectedId": "baz",
+}
+`;
+
+exports[`Key down events should update correctly when pressing LEFT key when not on first tab 1`] = `
+Object {
+  "selectedId": "foo",
+}
+`;
+
+exports[`Key down events should update correctly when pressing RIGHT key on last tab 1`] = `
+Object {
+  "selectedId": "foo",
+}
+`;
+
+exports[`Key down events should update correctly when pressing RIGHT key when not on last tab 1`] = `
+Object {
+  "selectedId": "baz",
+}
+`;
+
+exports[`Key down events should update correctly when pressing UP key on first tab 1`] = `
+Object {
+  "selectedId": "baz",
+}
+`;
+
+exports[`Key down events should update correctly when pressing UP key when not on first tab 1`] = `
+Object {
+  "selectedId": "foo",
+}
+`;
