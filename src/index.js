@@ -1,6 +1,6 @@
 import React from "react";
 import Tab from "./Tab";
-import TabPanel from "./TabPanel";
 import Tabs from "./Tabs";
+import TabPanel from "./TabPanel";
 
 export { Tab, TabPanel, Tabs };
