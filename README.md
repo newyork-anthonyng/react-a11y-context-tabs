@@ -104,6 +104,8 @@ export default () => (
 | selectedTabClassName | (**String**) The `className` given to the active `<Tab />` | "react-tabs__tab--selected" |
 | selectedTabPanelClassName | (**String**) The `className` given to the active `<TabPanel />` | "react-tabs__tab-panel--selected" |
 | forceRenderTabPanel | (**Boolean**) By default, the contents of `<TabPanel />`s that are not active are not rendered in the DOM. Set this to `true` to force it to render | false |
+| onSelect | (**Function**) A function that is called whenever a new `<Tab />` is selected. The function is called with the ID of the new `<Tab />` as its argument | () => {} |
+| selectedId | (**String**) Make `<Tabs />` into a [controlled component](https://reactjs.org/docs/forms.html#controlled-components). Set the ID of the `<Tab />` you want to be active.
 | innerRef | (**Function**) A function to get the `ref` of the wrapper `<div />` element | None |
 
 # Demo

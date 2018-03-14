@@ -22,13 +22,17 @@ class Tabs extends React.Component {
     const {
       forceRenderTabPanel,
       selectedTabClassName,
-      selectedTabPanelClassName
+      selectedTabPanelClassName,
+      onSelect,
+      selectedId
     } = this.props;
 
     return {
-      selectedId: this.state.selectedId,
+      selectedId: this.getSelectedId(),
       onActivate: index => {
-        this.setState({ selectedId: index });
+        this.setState({ selectedId: index }, () => {
+          onSelect(index);
+        });
       },
       onTabMount: (index, focus) => {
         if (!this.firstIndex) {
@@ -50,6 +54,12 @@ class Tabs extends React.Component {
     };
   }
 
+  getSelectedId = () => {
+    return this.props.selectedId === null
+      ? this.state.selectedId
+      : this.props.selectedId;
+  };
+
   handleKeyDown = ({ keyCode }) => {
     let nextTabIndex = null;
 
@@ -66,6 +76,7 @@ class Tabs extends React.Component {
         if (typeof this.focusTabs[newSelectedId] === "function") {
           this.focusTabs[newSelectedId]();
         }
+        this.props.onSelect(newSelectedId);
       });
     }
   };
@@ -79,13 +90,13 @@ class Tabs extends React.Component {
   };
 
   getPreviousTabIndex = () => {
-    let tabIndex = this.tabs.indexOf(this.state.selectedId) - 1;
+    let tabIndex = this.tabs.indexOf(this.getSelectedId()) - 1;
     if (tabIndex < 0) tabIndex = this.tabs.length - 1;
     return tabIndex;
   };
 
   getNextTabIndex = () => {
-    let tabIndex = this.tabs.indexOf(this.state.selectedId) + 1;
+    let tabIndex = this.tabs.indexOf(this.getSelectedId()) + 1;
     if (tabIndex >= this.tabs.length) tabIndex = 0;
 
     return tabIndex;
@@ -99,6 +110,7 @@ class Tabs extends React.Component {
       selectedTabClassName,
       selectedTabPanelClassName,
       onKeyDown,
+      selectedId,
       ...rest
     } = this.props;
 
@@ -120,13 +132,17 @@ Tabs.propTypes = {
   selectedTabPanelClassName: PropTypes.string,
   innerRef: PropTypes.func,
   children: PropTypes.node,
-  onKeyDown: PropTypes.func
+  onKeyDown: PropTypes.func,
+  onSelect: PropTypes.func,
+  selectedId: PropTypes.string
 };
 
 Tabs.defaultProps = {
   forceRenderTabPanel: false,
   selectedTabClassName: "react-tabs__tab--selected",
-  selectedTabPanelClassName: "react-tabs__tab-panel--selected"
+  selectedTabPanelClassName: "react-tabs__tab-panel--selected",
+  selectedId: null,
+  onSelect: () => {}
 };
 
 Tabs.childContextTypes = {
