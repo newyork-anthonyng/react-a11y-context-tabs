@@ -12,7 +12,8 @@ const defaultProps = {
   forceRenderTabPanel: false,
   selectedTabClassName: "tab--selected",
   selectedTabPanelClassName: "tabPanel--selected",
-  innerRef: () => {}
+  innerRef: () => {},
+  onSelect: () => {}
 };
 
 describe("Context", () => {
@@ -197,5 +198,113 @@ describe("Key down events", () => {
     divEl.simulate("keydown", { keyCode: DOWN_ARROW_KEY_CODE });
 
     expect(cb).toHaveBeenCalledTimes(1);
+  });
+});
+
+describe("onSelect", () => {
+  it("should call onSelect function when activating a new tab", () => {
+    const cb = jest.fn();
+    const wrapper = mount(
+      <Tabs {...defaultProps} onSelect={cb}>
+        <h1>Hello World</h1>
+      </Tabs>
+    );
+
+    const { onActivate } = wrapper.instance().getChildContext();
+    onActivate("foo");
+
+    expect(cb).toHaveBeenCalledTimes(1);
+    expect(cb.mock.calls[0][0]).toEqual("foo");
+  });
+
+  it("should call onSelect function when pressing LEFT/UP arrows", () => {
+    const cb = jest.fn();
+    const wrapper = mount(
+      <Tabs {...defaultProps} onSelect={cb}>
+        <h1>Hello World</h1>
+      </Tabs>
+    );
+
+    const { onTabMount } = wrapper.instance().getChildContext();
+    onTabMount("foo");
+    onTabMount("bar");
+    onTabMount("baz");
+    wrapper.setState({ selectedId: "foo" });
+
+    const divEl = wrapper.find("div");
+    divEl.simulate("keydown", { keyCode: LEFT_ARROW_KEY_CODE });
+    divEl.simulate("keydown", { keyCode: UP_ARROW_KEY_CODE });
+
+    expect(cb).toHaveBeenCalledTimes(2);
+    expect(cb.mock.calls).toMatchSnapshot();
+  });
+
+  it("should call onSelect function when pressing RIGHT/DOWN arrows", () => {
+    const cb = jest.fn();
+    const wrapper = mount(
+      <Tabs {...defaultProps} onSelect={cb}>
+        <h1>Hello World</h1>
+      </Tabs>
+    );
+
+    const { onTabMount } = wrapper.instance().getChildContext();
+    onTabMount("foo");
+    onTabMount("bar");
+    onTabMount("baz");
+    wrapper.setState({ selectedId: "foo" });
+
+    const divEl = wrapper.find("div");
+    divEl.simulate("keydown", { keyCode: RIGHT_ARROW_KEY_CODE });
+    divEl.simulate("keydown", { keyCode: DOWN_ARROW_KEY_CODE });
+
+    expect(cb).toHaveBeenCalledTimes(2);
+    expect(cb.mock.calls).toMatchSnapshot();
+  });
+
+  it("should not error when onSelect function is undefined", () => {
+    const wrapper = mount(
+      <Tabs {...defaultProps} onSelect={undefined}>
+        <h1>Hello World</h1>
+      </Tabs>
+    );
+
+    const { onActivate } = wrapper.instance().getChildContext();
+    expect(() => onActivate("foo")).not.toThrow();
+  });
+});
+
+describe("When Tabs is controlled", () => {
+  it("should not change selectedId when a Tab is activated", () => {
+    const wrapper = mount(
+      <Tabs {...defaultProps} selectedId="foo">
+        <h1>Hello World</h1>
+      </Tabs>
+    );
+
+    const { onActivate, selectedId } = wrapper.instance().getChildContext();
+    onActivate("bar");
+
+    expect(selectedId).toEqual("foo");
+  });
+
+  it("should not change selectedId when pressing an arrow key", () => {
+    const cb = jest.fn();
+    const wrapper = mount(
+      <Tabs {...defaultProps} selectedId="bar" onSelect={cb}>
+        <h1>Hello World</h1>
+      </Tabs>
+    );
+
+    const { onTabMount } = wrapper.instance().getChildContext();
+    onTabMount("foo");
+    onTabMount("bar");
+    onTabMount("baz");
+
+    const divEl = wrapper.find("div");
+    divEl.simulate("keydown", { keyCode: RIGHT_ARROW_KEY_CODE });
+
+    expect(wrapper.instance().getChildContext().selectedId).toEqual("bar");
+    expect(cb).toHaveBeenCalledTimes(1);
+    expect(cb.mock.calls[0][0]).toEqual("baz");
   });
 });

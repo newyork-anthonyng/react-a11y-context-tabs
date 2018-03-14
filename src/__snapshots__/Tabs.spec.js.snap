@@ -77,3 +77,25 @@ Object {
   "selectedId": "foo",
 }
 `;
+
+exports[`onSelect should call onSelect function when pressing LEFT/UP arrows 1`] = `
+Array [
+  Array [
+    "baz",
+  ],
+  Array [
+    "bar",
+  ],
+]
+`;
+
+exports[`onSelect should call onSelect function when pressing RIGHT/DOWN arrows 1`] = `
+Array [
+  Array [
+    "bar",
+  ],
+  Array [
+    "baz",
+  ],
+]
+`;
