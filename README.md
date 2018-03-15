@@ -10,7 +10,7 @@
 [![Maintainability][code-climate-badge]][code-climate]
 [![PRs Welcome][pull-request-badge]](http://makeapullrequest.com)
 
-# react-a11y-context-tabs-a11y
+# react-a11y-context-tabs
 React tab component which is accessible and can be nested within other HTML elements.
 
 # Getting started
@@ -55,7 +55,7 @@ export default () => (
 `react-context-a11y-tabs` are accessible and allows nesting your tabs in other HTML elements.
 
 ```jsx
-import { Tab, Tabs, TabPanel } from 'react-tabs';
+import { Tab, Tabs, TabPanel } from 'react-a11y-context-tabs';
 
 export default () => (
   <Tabs>
@@ -109,21 +109,23 @@ export default () => (
 | innerRef | (**Function**) A function to get the `ref` of the wrapper `<div />` element | None |
 
 # Demo
-See this [CodeSandbox demo]().
+* [Uncontrolled component](https://codesandbox.io/s/vv7kly61ql)
+* [Controlled component](https://codesandbox.io/s/z29op11w3x)
+* [forceRenderTabPanel with CSS styles](https://codesandbox.io/s/5yrxz276px)
 
-[codecov]: https://codecov.io/gh/newyork-anthonyng/react-a11y-context-tabs-a11y
-[codecov-badge]: https://img.shields.io/codecov/c/github/newyork-anthonyng/react-a11y-context-tabs-a11y/master.svg
-[code-climate]: https://codeclimate.com/github/newyork-anthonyng/react-a11y-context-tabs-a11y/maintainability
+[codecov]: https://codecov.io/gh/newyork-anthonyng/react-a11y-context-tabs
+[codecov-badge]: https://img.shields.io/codecov/c/github/newyork-anthonyng/react-a11y-context-tabs/master.svg
+[code-climate]: https://codeclimate.com/github/newyork-anthonyng/react-a11y-context-tabs/maintainability
 [code-climate-badge]: https://api.codeclimate.com/v1/badges/faefec967ef40a030c3e/maintainability
-[downloads-badge]: https://img.shields.io/npm/dm/react-a11y-context-tabs-a11y.svg?style=flat-square
-[license]: https://github.com/newyork-anthonyng/react-a11y-context-tabs-a11y/blob/master/LICENSE
-[license-badge]: https://img.shields.io/npm/l/react-a11y-context-tabs-a11y.svg?style=flat-square
-[npmcharts]: https://npmcharts.com/compare/react-a11y-context-tabs-a11y
-[npm-version]:https://www.npmjs.com/package/react-a11y-context-tabs-a11y
-[npm-badge]: https://img.shields.io/npm/v/react-a11y-context-tabs-a11y.svg?style=flat-square
+[downloads-badge]: https://img.shields.io/npm/dm/react-a11y-context-tabs.svg?style=flat-square
+[license]: https://github.com/newyork-anthonyng/react-a11y-context-tabs/blob/master/LICENSE
+[license-badge]: https://img.shields.io/npm/l/react-a11y-context-tabs.svg?style=flat-square
+[npmcharts]: https://npmcharts.com/compare/react-a11y-context-tabs
+[npm-version]:https://www.npmjs.com/package/react-a11y-context-tabs
+[npm-badge]: https://img.shields.io/npm/v/react-a11y-context-tabs.svg?style=flat-square
 [pull-request-badge]: https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square
-[travis-badge]: https://travis-ci.org/newyork-anthonyng/react-a11y-context-tabs-a11y.svg?branch=master
-[travis-build]: https://travis-ci.org/newyork-anthonyng/react-a11y-context-tabs-a11y
-[gzip-badge]: http://img.badgesize.io/https://unpkg.com/react-a11y-context-tabs-a11y?compression=gzip&label=gzip%20size&style=flat-square
-[size-badge]: http://img.badgesize.io/https://unpkg.com/react-a11y-context-tabs-a11y?label=size&style=flat-square
-[unpkg]: https://unpkg.com/react-a11y-context-tabs-a11y
+[travis-badge]: https://travis-ci.org/newyork-anthonyng/react-a11y-context-tabs.svg?branch=master
+[travis-build]: https://travis-ci.org/newyork-anthonyng/react-a11y-context-tabs
+[gzip-badge]: http://img.badgesize.io/https://unpkg.com/react-a11y-context-tabs?compression=gzip&label=gzip%20size&style=flat-square
+[size-badge]: http://img.badgesize.io/https://unpkg.com/react-a11y-context-tabs?label=size&style=flat-square
+[unpkg]: https://unpkg.com/react-a11y-context-tabs
